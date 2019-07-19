@@ -7,7 +7,7 @@ import (
 )
 
 const charset = "abcdefghijklmnopqrstuvwxyz" +
-"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 var seededRand = rand.New(
 	rand.NewSource(time.Now().UnixNano()))

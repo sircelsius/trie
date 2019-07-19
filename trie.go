@@ -6,8 +6,8 @@ import (
 )
 
 type Node struct {
-	IsWord bool
-	Value rune
+	IsWord   bool
+	Value    rune
 	Children map[rune]*Node
 }
 
@@ -18,9 +18,9 @@ type Trie struct {
 
 func New() *Trie {
 	return &Trie{
-		root: &Node {
-			IsWord:false,
-			Value: rune(0),
+		root: &Node{
+			IsWord:   false,
+			Value:    rune(0),
 			Children: make(map[rune]*Node),
 		},
 	}
@@ -41,8 +41,8 @@ func (n *Node) insertWord(word string) {
 
 	if n.Children[firstRune] == nil {
 		n.Children[firstRune] = &Node{
-			Value:firstRune,
-			IsWord: len(word) == 1,
+			Value:    firstRune,
+			IsWord:   len(word) == 1,
 			Children: make(map[rune]*Node),
 		}
 	}
@@ -63,7 +63,6 @@ func (n *Node) containsWord(word string) bool {
 
 	firstRune := []rune(word)[0]
 
-
 	if n.Children[firstRune] == nil {
 		return false
 	}
@@ -77,7 +76,7 @@ func (n *Node) containsWord(word string) bool {
 
 func (n *Node) String() string {
 	value := fmt.Sprintf("{  Value: %v, IsWord: %v, Children: {  ", string(n.Value), n.IsWord)
-	for _, v := range  n.Children {
+	for _, v := range n.Children {
 		value += fmt.Sprintf("%v", v)
 	}
 	value += "  }  }"
